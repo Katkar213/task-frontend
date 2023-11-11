@@ -1,0 +1,104 @@
+/* mobile... */
+
+.mobile-maincontainer{
+  display: flex;
+  border: 2px solid green;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.mobile-conatiner{
+  width: 76vw;
+  display:flex;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.474);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 10px;
+  gap:10px;
+  flex-direction: row;
+  text-align: center;
+ 
+ 
+}
+
+
+.mobile-sidediv{
+  display: flex;
+  flex-direction: column;
+ gap:20px;
+  width: 20vw;
+  height:55vh;
+  margin-top:6%;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.474);
+   background-color: lightgray;
+  padding-top: 40px;
+   align-items: center;
+  
+}
+.mobile-child_containercard-image img{
+
+  height:23vh; 
+  width:13vw;
+  border-radius: 5px ;
+
+}
+.mobile-child_conatinercard{
+ height: 55vh;
+  width: 18vw;
+  border-radius: 20px;
+  margin: auto;
+  box-shadow: 0px 0px 4px black;
+  align-items: center;
+  margin-top: 10px;
+  transition: 0.5s;
+ 
+}
+.mobile-child_conatinercard:hover{
+
+  transform:translateY(-8px);
+}
+
+.mobile-commonbutton{
+  background-color: rgba(0, 0, 0, 0.735);
+  color:white;
+  height:5vh;
+  width:10vw;
+}
+.mobile-commonbutton:hover{
+  border-radius: 10px;
+}
+.specialdivnavlink{
+  color:black;
+  text-decoration: none;
+}
+
+
+
+
+/* media ouery mobile view......................... */
+@media screen and (max-width:500px) and (min-width:280px){
+
+  .mobile-conatiner{
+
+    flex-direction: column;
+    width:99vw;
+
+  }
+  .mobile-child_conatinercard{
+width:90vw;
+  }
+  .mobile-child_containercard-image img{
+    width:55vw;
+    height:28vh;
+  }
+  .mobile-commonbutton{
+    width:60vw;
+  }
+  .mobile-sidediv{
+    display:none;
+  }
+  .mobile-child_conatinercard{
+    height:59vh;
+  }
+
+
+}
