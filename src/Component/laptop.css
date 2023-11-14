@@ -2,7 +2,8 @@
 
 .laptop-maincontainer{
     display: flex;
-    border: 2px solid green;
+    /* border: 2px solid green; */
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.474);
     justify-content: space-between;
     margin-top: 10px;
   }
@@ -37,7 +38,7 @@
     height:23vh; 
     width:13vw;
     border-radius: 5px ;
-   box-shadow: 0px 0px 4px black;
+   /* box-shadow: 0px 0px 4px black; */
 
   }
   .laptop-child_conatinercard{
@@ -69,6 +70,14 @@
     color:black;
     text-decoration: none;
   }
+  .laptop-loadmore{
+    margin-top: 20px;
+    background-color: skyblue;
+    color:white;
+    height:8vh;
+    font-size: 18px;
+    width:17vw;
+  }
 
 
 
@@ -84,6 +93,7 @@
     }
     .laptop-child_conatinercard{
 width:90vw;
+margin: auto;
     }
     .laptop-child_containercard-image img{
       width:72vw;
@@ -99,5 +109,39 @@ width:90vw;
       height:59vh;
     }
 
+    .laptop-loadmore{
+      
+      width:60vw;
+    }
+  
+
 
   }
+
+    /* Tab view.... */
+    @media screen and (max-width:950px) and (min-width:501px){
+      
+      .laptop-conatiner{
+    
+        /* flex-direction: column; */
+        width:99vw;
+  
+      }
+      .laptop-sidediv{
+        display:none;
+      }
+      .laptop-child_conatinercard{
+        width:45vw;
+        height:42vh;
+       padding-top: 10px;
+       margin: auto;
+      }
+      .laptop-child_containercard-image img{
+        width:30vw;
+        height:20vh;
+      }
+      .laptop-commonbutton{
+        width:30vw;
+      }
+
+    }

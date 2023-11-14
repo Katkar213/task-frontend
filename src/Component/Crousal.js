@@ -9,7 +9,7 @@ export default function Crousal(){
 
     useEffect(() => {
       axios
-        .get("http://localhost:4001/api/global")
+        .get("http://localhost:4001/api/finddata")
         .then((res) => {
           setData(res.data);
         })
@@ -30,7 +30,7 @@ export default function Crousal(){
             data.filter((item)=>item.category==="crousal").map((images,index)=>
               {
               return(<div key={index}>
-                <img src={images.download_url} alt={images.author}/>
+                <img src={images.download_url} alt="not found"/>
                 </div>
               )
              

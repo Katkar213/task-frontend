@@ -1,13 +1,13 @@
-.detail-container{
+.single-container{
     /* border: 2px solid black; */
     display: flex;
    justify-content: space-around;
 }
-.detail-leftsidediv img{
+.single-leftsidediv img{
     width:35vw;
     height:50vh;
 }
-.detail-leftsidediv{
+.single-leftsidediv{
     /* border:2px solid red; */
     min-width:45vw;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.474);
@@ -15,7 +15,7 @@
    padding-top: 16vh;
    
 }
-.detail-rightsidediv{
+.single-rightsidediv{
      padding:10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.474);
     min-width:45vw;
@@ -23,23 +23,23 @@
     text-align:center;
     line-height: 24px;
 }
-.detail-rightsideinnerdiv{
+.single-rightsideinnerdiv{
     text-align:left;
 }
 
-.detail-Price-of-All{
+.single-Price-of-All{
     color: skyblue;
 }
-.detail-modelname{
+.single-modelname{
     margin: auto;
 }
 /* p{
     font-size: 25px;
 } */
-.detail-detailpada-p{
+.single-detailpada-p{
 font-size: 25px;
 }
-.detail-buttonforAll{
+.single-buttonforAll{
     background-color: rgba(0, 0, 0, 0.735);
     color:white;
     height:5vh;
@@ -47,37 +47,33 @@ font-size: 25px;
     margin: auto;
     text-align: center;
   }
-  .detail-buttonforAll:hover{
+  .single-buttonforAll:hover{
     border-radius: 10px;
   }
 
 
 @media screen and (max-width:500px) and (min-width:280px){
-.detail-container{
+.single-container{
 flex-direction: column;
 }
 
-.detail-buttonforAll{
+.single-buttonforAll{
     
     height:5vh;
     width:60vw;
    
   }
-  .detail-rightsideinnerdiv{
+  .single-rightsideinnerdiv{
     text-align:center;
-   
 }
-.detail-leftsidediv img{
+.single-leftsidediv img{
     width:90vw;
-    height:30vh;
+    height:55vh;
     margin: auto;
 
 }
-.detail-leftsidediv{
+.single-leftsidediv{
    padding-top: 3vh ;
-}
-.detail-detailpada-p{
-    font-size: 16px;
 }
 
 }

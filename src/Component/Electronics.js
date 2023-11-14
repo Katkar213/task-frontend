@@ -5,10 +5,16 @@ import "./Electronics.css"
 
 const Electronics = () => {
   const [data, setData] = useState([]);
+  const[slicedata,setSliceData]=useState(8)
+  // const slice=data.slice(0,slicedata);
+  const handleLoadMore=()=>{
+    setSliceData(slicedata+4)
+  }
+
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/global")
+      .get("http://localhost:4001/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -27,11 +33,13 @@ const Electronics = () => {
       <NavLink className="navlink-names" to="/fashion/womensfashion">Womens</NavLink>
         </div>
         <div className="electronics-conatiner">
-          {data.filter((item)=>item.category==="electronics").map((item, index) => {
+          {data.filter((item)=>item.category==="electronics").slice(0,slicedata).map((item, index) => {
             return (
-              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+              
               <div key={index} className="electronics-child_conatinercard">
-               <p>{item.model}</p>
+                <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+                <div>
+                <p>{item.model}</p>
                <div className="electronics-child_containercard-image">
                <img
                   src={item.image}
@@ -41,15 +49,18 @@ const Electronics = () => {
               
                 <p>Price:{item.price}</p>
                 <h4>
-                  {item.specs.RAM} {item.specs.ROM}<br></br>
-                  {item.display}</h4>
+                  {item.RAM} {item.ROM}<br></br>
+                  </h4>
+                </div>
+                </NavLink>
                   <button className="electronics-commonbutton">Buy Now</button>
               </div>
-              </NavLink>
+             
             );
           })}
         </div>
       </div>
+      <button onClick={handleLoadMore} className="laptop-loadmore">Load More</button>
     </>
   );
 };

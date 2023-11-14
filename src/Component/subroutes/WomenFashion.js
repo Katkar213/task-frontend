@@ -8,7 +8,7 @@ const WomenFashion = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/global")
+      .get("http://localhost:4001/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -29,9 +29,11 @@ const WomenFashion = () => {
         <div className="fashion-conatiner">
           {data.filter((item)=>item.category==="women").map((item, index) => {
             return (
-              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+             
               <div key={index} className="fashion-child_conatinercard">
-               <p>{item.model}</p>
+                 <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+                <div>
+                <p>{item.model}</p>
                <div className="fashion-child_containercard-image">
                <img
                   src={item.image}
@@ -43,9 +45,11 @@ const WomenFashion = () => {
                 <h4>
                   {item.size} {item.color}<br></br>
                   {item.display}</h4>
+                </div>
+                </NavLink>
                   <button className="fashion-commonbutton">Buy Now</button>
               </div>
-              </NavLink>
+            
             );
           })}
         </div>

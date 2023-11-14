@@ -70,6 +70,14 @@
   color:black;
   text-decoration: none;
 }
+.fashion-loadmore{
+  margin-top: 20px;
+  background-color: skyblue;
+  color:white;
+  height:8vh;
+  font-size: 18px;
+  width:17vw;
+}
 
 
 
@@ -85,6 +93,7 @@
   }
   .fashion-child_conatinercard{
 width:90vw;
+margin: auto;
   }
   .fashion-child_containercard-image img{
     width:85vw;
@@ -102,3 +111,31 @@ width:90vw;
 
 
 }
+
+  /* Tab view.... */
+  @media screen and (max-width:950px) and (min-width:501px){
+      
+    .fashion-conatiner{
+  
+      /* flex-direction: column; */
+      width:99vw;
+
+    }
+    .fashion-sidediv{
+      display:none;
+    }
+    .fashion-child_conatinercard{
+      width:45vw;
+      height:42vh;
+     padding-top: 10px;
+     margin: auto;
+    }
+    .fashion-child_containercard-image img{
+      width:30vw;
+      height:20vh;
+    }
+    .fashion-commonbutton{
+      width:30vw;
+    }
+
+  }

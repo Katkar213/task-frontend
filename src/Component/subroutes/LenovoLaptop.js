@@ -8,7 +8,7 @@ const LenovoLaptops = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/global")
+      .get("http://localhost:4001/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -29,9 +29,11 @@ const LenovoLaptops = () => {
         <div className="laptop-conatiner">
           {data.filter((item)=>item.category==="lenovo").map((item, index) => {
             return (
-              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+             
               <div key={index} className="laptop-child_conatinercard">
-               <p>{item.model}</p>
+                 <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+                <div>
+                <p>{item.model}</p>
                <div className="laptop-child_containercard-image">
                <img
                   src={item.image}
@@ -41,11 +43,14 @@ const LenovoLaptops = () => {
               
                 <p>Price:{item.price}</p>
                 <h4>
-                  {item.specs.RAM} {item.specs.ROM}<br></br>
-                  {item.display}</h4>
+                  {item.RAM} {item.ROM}<br></br>
+                 </h4>
+                </div>
+                </NavLink>
+             
                   <button className="laptop-commonbutton">Buy Now</button>
               </div>
-              </NavLink>
+              
             );
           })}
         </div>

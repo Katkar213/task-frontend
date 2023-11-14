@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.combo{
+  display:flex;
+}
 body{
   margin: 0;
   padding:0;
@@ -175,7 +178,8 @@ footer{
   display:flex;
   justify-content: space-around;
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 10px;
+  height: auto;
   padding: 10px;
 }
 
@@ -214,13 +218,44 @@ footer li{
 @media screen and (max-width:500px) and (min-width:280px){
   .navlink{
     display:none;
+    justify-content: space-around;
   }
+  .navlink-names{
+    color:black;
+    font-size: 30px;
+
+  }
+  /* changed */
   .navlink-web{
-    display:block;
+    display:flex;
     flex-direction: column;
+    position: absolute;
+    top:10px;
+    left:0;
+    width:89.3vw;
+    height:90%;
+    z-index: 8;
+    backdrop-filter: blur(18px);
+    row-gap:10px;
+ 
   }
+ /* changed */
   .whole-searchbar{
-    display:none;
+  z-index:11;
+  position: absolute;
+  border-radius: 10px;
+  top:3px;
+  width:99vw;
+  margin-bottom: 10px;
+  left: 0%;
+  border: none;
+  box-shadow: 0px 0px 4px black;
+  
+  }
+  .searchbar{
+  
+    text-align: left;
+    width:80%;
   }
   .navbar{
     min-height: 13vh;
@@ -230,9 +265,13 @@ footer li{
 .logo{
   display: none;
 }
+/* changed */
 .hamberger{
   display:block;
   font-size: 30px;
+  color: black;
+  z-index: 11;
+  margin-top: 10px;
 }
 .title{
   display:none;
@@ -255,4 +294,92 @@ footer .navlink-names{
 .slider img{
   height:50vh;
 }
+
+}
+
+
+/* tab view....... */
+
+
+@media screen and (max-width:950px) and (min-width:500px){
+  .navlink{
+    display:none;
+    justify-content: space-around;
+  }
+  .navlink-names{
+    color:black;
+    font-size: 30px;
+
+  }
+  /* changed */
+  .navlink-web{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top:10px;
+    left:0;
+    width:94.8%;
+    height:90%;
+    z-index: 8;
+    backdrop-filter: blur(18px);
+    row-gap:10px;
+ 
+  }
+ /* changed */
+  .whole-searchbar{
+  z-index:11;
+  position: absolute;
+  border-radius: 10px;
+  top:3px;
+  width:97.9vw;
+  margin-bottom: 10px;
+  left: 0%;
+  border: none;
+  margin: auto;
+  box-shadow: 0px 0px 4px black;
+  
+  }
+  .searchbar{
+  
+    text-align: left;
+    width:80%;
+  }
+  .navbar{
+    min-height: 13vh;
+   justify-content: flex-end;
+   background-color: rgba(211, 211, 211, 0.289);
+  }
+.logo{
+  display: none;
+}
+.hamberger{
+  display:block;
+  font-size: 30px;
+  color: black;
+  z-index: 11;
+  margin-top: 10px;
+  float: right;
+}
+.title{
+  display:none;
+}
+.submenu{
+  display: none;
+}
+.navlink li:hover > .submenu{
+  display:none;
+  }
+
+footer .navlink-names{
+  color:black;
+  font-size: 20px;
+}
+.slider {
+  height: 50vh;
+
+}
+.slider img{
+  height:50vh;
+}
+
 }

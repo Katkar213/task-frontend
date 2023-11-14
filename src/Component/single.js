@@ -2,7 +2,7 @@
 import {useParams} from "react-router-dom"
 import {useState,useEffect} from "react"
 import axios from "axios"
-import "../Web-css/Detailpage.css"
+import "./single.css"
 
 export default function Detailpage(){
 
@@ -26,41 +26,35 @@ export default function Detailpage(){
                 data.filter((item)=>item.id===id).map((item,index)=>{
                     return(
                 
-                    <div className="detail-container" key={index}>
-                    <div  className="detail-leftsidediv">
+                    <div className="single-container" key={index}>
+                    <div  className="single-leftsidediv">
                       <img src={item.image} alt="Not Found" />
                     </div>
-                    <div className="detail-rightsidediv">
-                        <div className="detail-rightsideinnerdiv">
-                      <h2 className="detail-modelName">{item.model}</h2>
+                    <div className="single-rightsidediv">
+                        <div className="single-rightsideinnerdiv">
+                      <h2 className="single-modelName">{item.name}</h2>
                       <hr></hr>
-                      <h2 className="detail-Price-of-All">Deals Of The Day:  {item.price}</h2>
+                      <h2 className="single-Price-of-All">Deals Of The Day:  {item.price}</h2>
       
                       <h2>Specifications:</h2>
                       <ul>
                         <li>
-                          <p className="detail-detailpada-p">Brand:  {item.category}</p>
+                          <p className="single-detailpada-p">Brand:  {item.brand}</p>
                         </li>
                         <li>
-                          <p className="detail-detailpada-p">Model:{item.model}</p>
+                          <p className="single-detailpada-p">Type:{item.type}</p>
                         </li>
                         <li>
-                          <p className="detail-detailpada-p">Display:{item.display}</p>
+                          <p className="single-detailpada-p">Color:{item.color}</p>
                         </li>
                         <li>
-                          <p className="detail-detailpada-p">Battery-Life:{item.battery}</p>
+                          <p className="single-detailpada-p">Category:{item.category}</p>
                         </li>
-                        <li>
-                          <p className="detail-detailpada-p">Operating system:{item.operatingSystem}</p>
-                        </li>
-                      
-                        <li>
-                          <p className="detailpada-p">Processor:{item.processor}</p>
-                        </li>
+                       
                       </ul>
                       
                       </div>
-                      <button className="detail-buttonforAll">
+                      <button className="single-buttonforAll">
                        Buy Now
                       </button>
                      </div>

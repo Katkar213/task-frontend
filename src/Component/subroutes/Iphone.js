@@ -8,7 +8,7 @@ const Iphone = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/global")
+      .get("http://localhost:4001/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -29,8 +29,10 @@ const Iphone = () => {
         <div className="mobile-conatiner">
           {data.filter((item)=>item.category==="iphone").map((item, index) => {
             return (
-              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+        
               <div key={index} className="mobile-child_conatinercard">
+                      <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+                <div>
                <p>{item.model}</p>
                <div className="mobile-child_containercard-image">
                <img
@@ -41,11 +43,13 @@ const Iphone = () => {
               
                 <p>Price:{item.price}</p>
                 <h4>
-                  {item.specs.RAM} {item.specs.ROM}<br></br>
-                  {item.display}</h4>
+                  {item.RAM} {item.ROM}<br></br>
+                 </h4>
+                  </div>
+                  </NavLink>
                   <button className="mobile-commonbutton">Buy Now</button>
               </div>
-              </NavLink>
+           
             );
           })}
         </div>

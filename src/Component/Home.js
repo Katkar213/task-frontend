@@ -10,7 +10,7 @@ const Electronics = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/global")
+      .get("http://localhost:4001/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -25,8 +25,11 @@ const Electronics = () => {
         <div className="home-conatiner">
           {data.filter((item)=>item.category==="home").map((item, index) => {
             return (
-              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+              <div>
+              
               <div key={index} className="home-child_conatinercard">
+              <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
+                <div>
                <p>{item.model}</p>
                <p>{item.product}</p>
                <div className="home-child_containercard-image">
@@ -38,12 +41,16 @@ const Electronics = () => {
               
                 <p>Price:{item.price}</p>
                 <h4>
-                  {item.specs.RAM} {item.specs.ROM}<br></br>
+                  {item.RAM} {item.ROM}<br></br>
                   {item.display}</h4>
-
+                  </div>
+                  </NavLink> 
                   <button className="home-commonbutton">Buy Now</button>
               </div>
-              </NavLink>
+            
+              
+              </div>
+            
             );
           })}
         </div>
@@ -57,7 +64,7 @@ const Electronics = () => {
         <div className="child1 child">
           <h3>Free Delivery</h3>
         <i className="fa-solid fa-truck "></i>
-        <div ><p className="child1description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?
+        <div ><p className="child1description childdescription">Welcome to our online store, where shopping just got even more rewarding! We're excited to introduce our exclusive Free Shipping offer, designed to make your shopping experience truly delightful.
         </p>
         </div>
         </div>
@@ -66,7 +73,7 @@ const Electronics = () => {
         <div className="child2 child">
         <h3>Easy Replacement</h3>
         <i className="fa-solid fa-recycle"></i>
-        <div ><p className="child2description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?
+        <div ><p className="child2description childdescription">At [Title], your satisfaction is our top priority. We understand that sometimes things may not go as planned, and that's why we're proud to offer a 100% Refund Guarantee. With this assurance.
         </p>
         </div>
         </div>
@@ -75,7 +82,7 @@ const Electronics = () => {
         <div className="child3 child">
         <h3>Easy Replacement</h3>
         <i className="fa-solid fa-headphones-simple"></i>
-        <div ><p className="child3description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?
+        <div ><p className="child3description childdescription">At [Title], your satisfaction is our priority, and that's why we're thrilled to offer 24/7 support. We understand that your needs don't follow a schedule, and neither do we. With our always-on support, you can shop, inquire, and resolve issues whenever it's convenient for you.
         </p>
         </div>
         </div>
