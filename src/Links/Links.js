@@ -16,7 +16,9 @@ import WomenFashion from "../Component/subroutes/WomenFashion"
 import Detailpage from "../Component/Detailpage"
 import Single from "../Component/single"
 import Grocerysingle from "../Component/Grocerysingle"
-
+import AddCart from "../Component/AddCart"
+import Login from "../Component/UserCredentials/Login"
+import Register from "../Component/UserCredentials/Register"
 
 
 export default function Links(){
@@ -90,7 +92,7 @@ export default function Links(){
                 <div className="whole-searchbar"><input type="text" placeholder="Search here..." className="searchbar"/>  <button className="logosearchbar"><i className="fa-solid fa-magnifying-glass"></i></button></div>
                
                 <div className="logo">
-                <i className="fa-solid fa-cart-shopping"></i> <i className="fa-solid fa-user"></i> <i className="fa-regular fa-heart"></i></div> 
+                <NavLink to="/adddcart"><i className="fa-solid fa-cart-shopping"></i></NavLink> <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink>  <i className="fa-regular fa-heart"></i></div> 
                 
                 {/* hamberger */}
                 <div className="hamberger" onClick={()=>setChange(!change)}>
@@ -118,6 +120,9 @@ export default function Links(){
                <Route path="/detailpage/:id" element={<Detailpage/>}/>
                <Route path="/single/:id" element={<Single/>}/>
                <Route path="/grocerysingle/:id" element={<Grocerysingle/>}/>
+               <Route path="/addcart" element={<AddCart/>}/>
+               <Route path="/login" element={<Login/>}/>
+               <Route path="/register" element={<Register/>}/>
                 
             </Routes>
             
