@@ -13,7 +13,7 @@ export default function Detailpage(){
 
     useEffect(() => {
         axios
-          .get("http://localhost:4001/api/finddata")
+          .get("https://ecommerce-backend-new.onrender.com/api/finddata")
           .then((res) => {
             setData(res.data);
           })
@@ -55,7 +55,7 @@ export default function Detailpage(){
                         </li>
                       
                         <li>
-                          <p className="detailpada-p">Processor:{item.processor}</p>
+                          <p className="detail-detailpada-p">Processor:{item.processor}</p>
                         </li>
                       </ul>
                       

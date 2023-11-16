@@ -16,13 +16,15 @@ import WomenFashion from "../Component/subroutes/WomenFashion"
 import Detailpage from "../Component/Detailpage"
 import Single from "../Component/single"
 import Grocerysingle from "../Component/Grocerysingle"
-import AddCart from "../Component/AddCart"
+import Cart from "../Component/Cart"
 import Login from "../Component/UserCredentials/Login"
 import Register from "../Component/UserCredentials/Register"
+import {useSelector} from "react-redux"
 
 
 export default function Links(){
   const [change,setChange]=useState(false);
+  const countItem = useSelector((state) => state.Cart.cart);
 
     return(
         <div>
@@ -92,7 +94,7 @@ export default function Links(){
                 <div className="whole-searchbar"><input type="text" placeholder="Search here..." className="searchbar"/>  <button className="logosearchbar"><i className="fa-solid fa-magnifying-glass"></i></button></div>
                
                 <div className="logo">
-                <NavLink to="/adddcart"><i className="fa-solid fa-cart-shopping"></i></NavLink> <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink>  <i className="fa-regular fa-heart"></i></div> 
+                <div></div><NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i></NavLink><span>{countItem.length}</span> <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink>  </div> 
                 
                 {/* hamberger */}
                 <div className="hamberger" onClick={()=>setChange(!change)}>
@@ -120,7 +122,7 @@ export default function Links(){
                <Route path="/detailpage/:id" element={<Detailpage/>}/>
                <Route path="/single/:id" element={<Single/>}/>
                <Route path="/grocerysingle/:id" element={<Grocerysingle/>}/>
-               <Route path="/addcart" element={<AddCart/>}/>
+               <Route path="/cart" element={<Cart/>}/>
                <Route path="/login" element={<Login/>}/>
                <Route path="/register" element={<Register/>}/>
                 

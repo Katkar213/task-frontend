@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import {addtoCart} from "./Redux/Slicing"
 import "./laptop.css"
 
 const Laptops = () => {
   const [data, setData] = useState([]);
   const[slicedata,setSliceData]=useState(8)
+  const dispatch = useDispatch();
   // const slice=data.slice(0,slicedata);
   const handleLoadMore=()=>{
     setSliceData(slicedata+4)
@@ -15,7 +18,7 @@ const Laptops = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4001/api/finddata")
+      .get("https://ecommerce-backend-new.onrender.com/api/finddata")
       .then((res) => {
         setData(res.data);
       })
@@ -26,15 +29,23 @@ const Laptops = () => {
     <>
       <div className="laptop-maincontainer">
         <div className="laptop-sidediv">
-        <NavLink className="navlink-names" to="/mobile/iphone">Iphone</NavLink>
-        <NavLink className="navlink-names" to="/mobile/mimobiles">Mi mobiles</NavLink>
-       <NavLink className="navlink-names" to="/laptop/lenovolaptops">Lenovo</NavLink>
-      <NavLink className="navlink-names" to="/laptop/hplaptops">Hp</NavLink>
-      <NavLink className="navlink-names" to="/fashion/mensfashion">Mens</NavLink>
-      <NavLink className="navlink-names" to="/fashion/womensfashion">Womens</NavLink>
+        <NavLink className="navlink-names splnames" to="/mobile/iphone">Iphone</NavLink>
+        <NavLink className="navlink-names splnames" to="/mobile/mimobiles">Mi mobiles</NavLink>
+       <NavLink className="navlink-names splnames" to="/laptop/lenovolaptops">Lenovo</NavLink>
+      <NavLink className="navlink-names splnames" to="/laptop/hplaptops">Hp</NavLink>
+      <NavLink className="navlink-names splnames" to="/fashion/mensfashion">Mens</NavLink>
+      <NavLink className="navlink-names splnames" to="/fashion/womensfashion">Womens</NavLink>
         </div>
         <div className="laptop-conatiner">
           {data.filter((item)=>item.category==="laptop").slice(0,slicedata).map((item, index) => {
+               const {
+                id = item.id,
+                image = item.image,
+                price = (item.price),
+                model = item.model,
+                quantity = (item.quantity),
+              } = item;
+              console.log(item.quantity)
             return (
             
               <div key={index} className="laptop-child_conatinercard">
@@ -54,7 +65,9 @@ const Laptops = () => {
                   </h4>
                 </div>
                 </NavLink>
-                  <button className="laptop-commonbutton">Buy Now</button>
+                  <button className="laptop-commonbutton" onClick={() =>
+                      dispatch(addtoCart({ id, image, price, quantity, model }))
+                    }>Buy Now</button>
               </div>
               
             );

@@ -15,7 +15,7 @@ function LogIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4001/api/login", data)
+      .post("https://ecommerce-backend-new.onrender.com/api/login", data)
       .then((res) => {
         alert(res.data.message);
         setData(res.data);

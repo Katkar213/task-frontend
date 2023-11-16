@@ -21,7 +21,7 @@ function Register() {
     e.preventDefault();
     console.log(data);
     axios
-      .post("http://localhost:4001/api/register", data)
+      .post("https://ecommerce-backend-new.onrender.com/api/register", data)
       .then((res) => {
         alert(res.data.message);
         setData(res.data);

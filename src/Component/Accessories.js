@@ -16,7 +16,7 @@ export default function Accessories(){
 
     useEffect(() => {
       axios
-        .get("http://localhost:4001/api/finddata")
+        .get("https://ecommerce-backend-new.onrender.com/api/finddata")
         .then((res) => {
           setData(res.data);
         })
@@ -26,12 +26,12 @@ export default function Accessories(){
       <>
         <div className="electronics-maincontainer">
         <div className="electronics-sidediv">
-        <NavLink className="navlink-names" to="/mobile/iphone">Iphone</NavLink>
-        <NavLink className="navlink-names" to="/mobile/mimobiles">Mi mobiles</NavLink>
-       <NavLink className="navlink-names" to="/laptop/lenovolaptops">Lenovo</NavLink>
-      <NavLink className="navlink-names" to="/laptop/hplaptops">Hp</NavLink>
-      <NavLink className="navlink-names" to="/fashion/mensfashion">Mens</NavLink>
-      <NavLink className="navlink-names" to="/fashion/womensfashion">Womens</NavLink>
+        <NavLink className="navlink-names splnames" to="/mobile/iphone">Iphone</NavLink>
+        <NavLink className="navlink-names splnames" to="/mobile/mimobiles">Mi mobiles</NavLink>
+       <NavLink className="navlink-names splnames" to="/laptop/lenovolaptops">Lenovo</NavLink>
+      <NavLink className="navlink-names splnames" to="/laptop/hplaptops">Hp</NavLink>
+      <NavLink className="navlink-names splnames" to="/fashion/mensfashion">Mens</NavLink>
+      <NavLink className="navlink-names splnames" to="/fashion/womensfashion">Womens</NavLink>
         </div>
         <div className="electronics-conatiner">
           {data.filter((item)=>item.category==="accessories").slice(0,slicedata).map((item, index) => {

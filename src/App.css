@@ -29,8 +29,22 @@ ul li{
   color:white;
   
 }
+.fa-cart-shopping{
+  color:white;
+}
+.fa-user{
+  color:white;
+}
 .navlink li{
   position: relative;
+}
+.navlink-names:hover{
+  border-bottom: 3px solid #29b6f6;
+  transition: border-bottom .2s ease-in-out;
+}
+
+.active{
+  color:yellow;
 }
 
 /* submenu level 1 */
@@ -102,9 +116,7 @@ border: none;
   color:white;
   
 }
-.navlink-names:hover{
-color:red;
-}
+
 .searchbar-logo{
   display: flex;
   width:27vw;
@@ -262,9 +274,15 @@ footer li{
    justify-content: flex-end;
    background-color: rgba(211, 211, 211, 0.289);
   }
-.logo{
+/* .logo{
   display: none;
+} */
+.logo{
+  width:50vw;
+  margin-top: 10px;
+  color:black;
 }
+
 /* changed */
 .hamberger{
   display:block;
@@ -294,6 +312,21 @@ footer .navlink-names{
 .slider img{
   height:50vh;
 }
+.logo a{
+  display: flex;
+  z-index: 12;
+  }
+  span{
+   text-shadow: 0px 0px 4px white;
+  }
+  .fa-cart-shopping{
+    display: block;
+    z-index: 12;
+    color: black;
+  }
+  .fa-user{
+    color: black;
+  }
 
 }
 
@@ -349,16 +382,14 @@ footer .navlink-names{
    justify-content: flex-end;
    background-color: rgba(211, 211, 211, 0.289);
   }
-.logo{
-  display: none;
-}
+
 .hamberger{
   display:block;
   font-size: 30px;
   color: black;
   z-index: 11;
   margin-top: 10px;
-  float: right;
+  /* float: right; */
 }
 .title{
   display:none;

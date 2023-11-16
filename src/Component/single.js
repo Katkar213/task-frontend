@@ -13,7 +13,7 @@ export default function Detailpage(){
 
     useEffect(() => {
         axios
-          .get("http://localhost:4001/api/finddata")
+          .get("https://ecommerce-backend-new.onrender.com/api/finddata")
           .then((res) => {
             setData(res.data);
           })

@@ -13,7 +13,7 @@ export default function Grocerysingle(){
 
     useEffect(() => {
         axios
-          .get("http://localhost:4001/api/global")
+          .get("https://ecommerce-backend-new.onrender.com/api/global")
           .then((res) => {
             setData(res.data);
           })
