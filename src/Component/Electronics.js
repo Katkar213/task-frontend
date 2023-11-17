@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import {addtoCart} from "./Redux/Slicing"
 import "./Electronics.css"
 
 const Electronics = () => {
   const [data, setData] = useState([]);
   const[slicedata,setSliceData]=useState(8)
+  const dispatch = useDispatch();
   // const slice=data.slice(0,slicedata);
   const handleLoadMore=()=>{
     setSliceData(slicedata+4)
@@ -34,6 +37,13 @@ const Electronics = () => {
         </div>
         <div className="electronics-conatiner">
           {data.filter((item)=>item.category==="electronics").slice(0,slicedata).map((item, index) => {
+                 const {
+                  id = item.id,
+                  image = item.image,
+                  price = (item.price),
+                  model = item.model,
+                  quantity = (item.quantity),
+                } = item;
             return (
               
               <div key={index} className="electronics-child_conatinercard">
@@ -53,7 +63,9 @@ const Electronics = () => {
                   </h4>
                 </div>
                 </NavLink>
-                  <button className="electronics-commonbutton">Buy Now</button>
+                  <button className="electronics-commonbutton" onClick={() =>
+                      dispatch(addtoCart({ id, image, price, quantity, model }))
+                    }>Buy Now</button>
               </div>
              
             );

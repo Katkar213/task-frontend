@@ -19,7 +19,7 @@ function LogIn() {
       .then((res) => {
         alert(res.data.message);
         setData(res.data);
-        localStorage.setItem("token", res.data.token);
+        localStorage.getItem("token", res.data.token);
         if (res.data.token) {
           navigate("/");
         } else {

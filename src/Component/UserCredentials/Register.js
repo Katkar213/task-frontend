@@ -20,12 +20,11 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    axios
-      .post("https://ecommerce-backend-new.onrender.com/api/register", data)
+    axios.post("http://localhost:4001/api/register", data)
       .then((res) => {
         alert(res.data.message);
-        setData(res.data);
-        localStorage.getItem("token", res.data.token);
+        
+        localStorage.setItem("token", res.data.token);
         navi("/login");
       })
       .catch((err) => console.log(err));

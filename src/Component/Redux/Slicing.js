@@ -21,6 +21,7 @@ const AddtoCart = createSlice({
           quantity: 1,
           total: action.payload.price,
         });
+        console.log(state.cart)
       }
     },
     RemoveItem: (state, action) => {

@@ -27,8 +27,7 @@ const Cart = () => {
         <div className="headOfcart">
           <h4>Product</h4>
           <h4>Title</h4>
-          <h4>Price</h4>
-          <h4>Quantity</h4>
+          <h4>Price and Quantity</h4>
         </div>
 
         <div>
@@ -39,7 +38,7 @@ const Cart = () => {
                 <div className="content-cart" key={index}>
                   <img src={item.image} alt="Loading..." />
                   <div className="cart-subcontent">
-                    <h2>{item.model}</h2>
+                    <h2>{item.model} {item.product}</h2>
                     <button
                       className="remove-cart"
                       onClick={() => dispatch(RemoveItem({ id: item.id }))}

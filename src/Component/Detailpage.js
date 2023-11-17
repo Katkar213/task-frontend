@@ -2,6 +2,8 @@
 import {useParams} from "react-router-dom"
 import {useState,useEffect} from "react"
 import axios from "axios"
+import {addtoCart} from "./Redux/Slicing"
+import { useDispatch } from "react-redux";
 import "../Web-css/Detailpage.css"
 
 export default function Detailpage(){
@@ -9,6 +11,7 @@ export default function Detailpage(){
     const {id}=useParams();
    
     const [data,setData]=useState([]);
+    const dispatch = useDispatch();
  
 
     useEffect(() => {
@@ -24,7 +27,14 @@ export default function Detailpage(){
         <div>
             {
                 data.filter((item)=>item.id===id).map((item,index)=>{
-                    return(
+                  const {
+                    id = item.id,
+                    image = item.image,
+                    price = (item.price),
+                    model = item.model,
+                    quantity = (item.quantity),
+                  } = item;
+                  return(
                 
                     <div className="detail-container" key={index}>
                     <div  className="detail-leftsidediv">
@@ -60,7 +70,9 @@ export default function Detailpage(){
                       </ul>
                       
                       </div>
-                      <button className="detail-buttonforAll">
+                      <button className="detail-buttonforAll" onClick={() =>
+                      dispatch(addtoCart({ id, image, price, quantity, model }))
+                    }>
                        Buy Now
                       </button>
                      </div>

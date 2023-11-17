@@ -65,9 +65,76 @@
     cursor: pointer;
     font-size: 16px;
   }
+  .quantity{
+    font-size: 28px;
+    font-weight: bold;
+    color:green;
+  }
   
   .buy button:hover {
     background-color: white;
     color: black;
     border: 2px solid #007bff;
+  }
+
+
+  @media screen and (max-width:500px) and (min-width:280px){
+
+    .cart-subcontent {
+     font-size: 8px;
+     width:20vw;
+     height:auto;
+    }
+    .cartprice {
+    font-size: 12px;
+    }
+    .total {
+    font-size: 12px;
+    flex-direction: column;
+    }
+    .total h1{
+      font-size: 10px;
+    }
+    .quantity{
+      font-size: 15px;
+     
+    }
+    .quantity-btn{
+      height:16px;
+      width:10px;
+      text-align: center;
+      align-items: baseline;
+    }
+    
+  }
+
+
+  @media screen and (max-width:950px) and (min-width:501px){
+
+    .cart-subcontent {
+     font-size: 8px;
+     width:20vw;
+     height:auto;
+    }
+    .cartprice {
+    font-size: 12px;
+    }
+    .total {
+    font-size: 12px;
+    flex-direction: column;
+    }
+    .total h1{
+      font-size: 10px;
+    }
+    .quantity{
+      font-size: 15px;
+     
+    }
+    .quantity-btn{
+      height:16px;
+      width:10px;
+      text-align: center;
+      align-items: baseline;
+    }
+    
   }

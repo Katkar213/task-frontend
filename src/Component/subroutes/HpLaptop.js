@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom"
+import {addtoCart} from "../Redux/Slicing"
+import { useDispatch } from "react-redux";
 import "../laptop.css"
 
 const HPLaptops = () => {
   const [data, setData] = useState([]);
+  const dispatch = useDispatch();
   
 
   useEffect(() => {
@@ -29,7 +32,14 @@ const HPLaptops = () => {
         </div>
         <div className="laptop-conatiner">
           {data.filter((item)=>item.category==="hp").map((item, index) => {
-            return (
+               const {
+                id = item.id,
+                image = item.image,
+                price = (item.price),
+                model = item.model,
+                quantity = (item.quantity),
+              } = item;
+          return (
             
                 <div>
                     
@@ -50,7 +60,9 @@ const HPLaptops = () => {
                  </h4>
                 </div>
                 </NavLink>
-                  <button className="laptop-commonbutton">Buy Now</button>
+                  <button className="laptop-commonbutton" onClick={() =>
+                      dispatch(addtoCart({ id, image, price, quantity, model }))
+                    }>Buy Now</button>
                   </div>
                   
               </div>

@@ -3,10 +3,13 @@ import Crousal from "./Crousal"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom"
+import {addtoCart} from "./Redux/Slicing"
+import { useDispatch } from "react-redux";
 import "../Web-css/home.css"
 
 const Electronics = () => {
   const [data, setData] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -24,7 +27,14 @@ const Electronics = () => {
        
         <div className="home-conatiner">
           {data.filter((item)=>item.category==="home").map((item, index) => {
-            return (
+             const {
+              id = item.id,
+              image = item.image,
+              price = (item.price),
+              model = item.model,
+              quantity = (item.quantity),
+            } = item;
+           return (
               <div>
               
               <div key={index} className="home-child_conatinercard">
@@ -45,7 +55,9 @@ const Electronics = () => {
                   {item.display}</h4>
                   </div>
                   </NavLink> 
-                  <button className="home-commonbutton">Buy Now</button>
+                  <button className="home-commonbutton" onClick={() =>
+                      dispatch(addtoCart({ id, image, price, quantity, model }))
+                    }>Buy Now</button>
               </div>
             
               
