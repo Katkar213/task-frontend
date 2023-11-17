@@ -20,7 +20,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    axios.post("http://localhost:4001/api/register", data)
+    axios.post("https://ecommerce-backend-new.onrender.com/api/register", data)
       .then((res) => {
         alert(res.data.message);
         
