@@ -19,7 +19,8 @@ function LogIn() {
       .then((res) => {
         alert(res.data.message);
         setData(res.data);
-        localStorage.getItem("token", res.data.token);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("name",res.data.name);
         if (res.data.token) {
           navigate("/");
         } else {

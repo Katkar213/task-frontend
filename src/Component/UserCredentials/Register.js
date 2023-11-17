@@ -23,8 +23,7 @@ function Register() {
     axios.post("https://ecommerce-backend-new.onrender.com/api/register", data)
       .then((res) => {
         alert(res.data.message);
-        
-        localStorage.setItem("token", res.data.token);
+        console.log("data added")
         navi("/login");
       })
       .catch((err) => console.log(err));

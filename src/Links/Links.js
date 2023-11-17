@@ -1,6 +1,6 @@
-import {BrowserRouter,NavLink,Routes,Route} from "react-router-dom"
+import {NavLink,Routes,Route,useNavigate} from "react-router-dom"
 import Home from "../Component/Home"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import Mobiles from "../Component/Mobiles"
 import Electronics from "../Component/Electronics"
 import Fashion from "../Component/Fashion"
@@ -20,15 +20,49 @@ import Cart from "../Component/Cart"
 import Login from "../Component/UserCredentials/Login"
 import Register from "../Component/UserCredentials/Register"
 import {useSelector} from "react-redux"
+import axios from "axios"
 
 
 export default function Links(){
   const [change,setChange]=useState(false);
+  
+  const[val,setval]=useState({value:"",btn:""})
+const token=localStorage.getItem("token")
+const userName=localStorage.getItem("name")
+const Nav=useNavigate();
+
+
+  useEffect(()=>{
+    if(token){
+      axios.get('https://ecommerce-backend-rzz2.onrender.com/api/',{headers:{"authorization":`Bearer ${token}`}})
+      .then((res)=>{
+        setval({
+          value:userName,
+          btn:"LogOut"
+        });
+        console.log(res.data);
+      })
+      .catch((err)=>console.log(err))
+    }
+    else{
+      setval({
+        value:"Profile",
+        btn:"SignIn"
+      })
+    }
+  },[token,Nav,userName])
+
+
+  const handlelogout= ()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    Nav("/")
+  }
   const countItem = useSelector((state) => state.Cart.cart);
 
     return(
         <div>
-            <BrowserRouter>
+         
             <div className="navbar">
 
                 <div className="title">
@@ -94,7 +128,20 @@ export default function Links(){
                 <div className="whole-searchbar"><input type="text" placeholder="Search here..." className="searchbar"/>  <button className="logosearchbar"><i className="fa-solid fa-magnifying-glass"></i></button></div>
                
                 <div className="logo">
-                <div></div><NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i></NavLink><span>{countItem.length}</span> <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink>  </div> 
+                <div></div>
+                <NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i>
+                </NavLink><span>{countItem.length}</span> 
+                {/* <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink> */}
+                <div><i className="fa-solid fa-user"></i>
+                <div >
+                  <span>{val.value}</span>
+                  {
+                    val.btn == "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                  }
+                </div>
+            </div>
+                
+                 </div> 
                 
                 {/* hamberger */}
                 <div className="hamberger" onClick={()=>setChange(!change)}>
@@ -146,7 +193,7 @@ export default function Links(){
            <NavLink>Customer Care</NavLink>
             </div>
             </footer>
-            </BrowserRouter>
+          
 
         </div>
     )
