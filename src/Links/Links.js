@@ -21,41 +21,58 @@ import Login from "../Component/UserCredentials/Login"
 import Register from "../Component/UserCredentials/Register"
 import {useSelector} from "react-redux"
 import axios from "axios"
+import SearchProduct from "../Component/SearchProduct"
 
 
 export default function Links(){
   const [change,setChange]=useState(false);
   
   const[val,setval]=useState({value:"",btn:""})
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 const token=localStorage.getItem("token")
 const userName=localStorage.getItem("name")
 const Nav=useNavigate();
 
 
-  useEffect(()=>{
-    if(token){
-      axios.get('https://ecommerce-backend-rzz2.onrender.com/api/',{headers:{"authorization":`Bearer ${token}`}})
-      .then((res)=>{
-        setval({
-          value:userName,
-          btn:"LogOut"
-        });
-        console.log(res.data);
-      })
-      .catch((err)=>console.log(err))
-    }
-    else{
-      setval({
-        value:"Profile",
-        btn:"SignIn"
-      })
-    }
-  },[token,Nav,userName])
+
+
+useEffect(()=>{
+  if(token){
+    
+    setval({
+      value:userName,
+      btn:"LogOut"
+    });
+}
+else{
+  setval({
+    value:"Profile",
+    btn:"SignIn"
+  })
+}
+},[token,Nav,userName])
+
+
+const HandleSearch = async (e) => {
+  const inputValue = e.target.value;
+  setQuery(inputValue);
+
+  try {
+    console.log("trying..")
+    const response=await axios.get(`http://localhost:4001/api/search?model=${inputValue}`);
+    setResults(response.data);
+    console.log(results)
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
 
 
   const handlelogout= ()=>{
     localStorage.removeItem("token");
-    localStorage.removeItem("username");
+    localStorage.removeItem("name");
     Nav("/")
   }
   const countItem = useSelector((state) => state.Cart.cart);
@@ -125,7 +142,13 @@ const Nav=useNavigate();
 
             <div className="searchbar-logo">
          
-                <div className="whole-searchbar"><input type="text" placeholder="Search here..." className="searchbar"/>  <button className="logosearchbar"><i className="fa-solid fa-magnifying-glass"></i></button></div>
+                <div className="whole-searchbar">
+                  <input type="text" placeholder="Search here..." className="searchbar" value={query}  onChange={HandleSearch} /> 
+                <NavLink to="/searchProduct" state={[results]}>
+                <button className="logosearchbar"><i className="fa-solid fa-magnifying-glass"></i></button>  
+                </NavLink>
+                
+                 </div>
                
                 <div className="logo">
                 <div></div>
@@ -136,7 +159,7 @@ const Nav=useNavigate();
                 <div >
                   <span>{val.value}</span>
                   {
-                    val.btn == "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
                   }
                 </div>
             </div>
@@ -172,6 +195,7 @@ const Nav=useNavigate();
                <Route path="/cart" element={<Cart/>}/>
                <Route path="/login" element={<Login/>}/>
                <Route path="/register" element={<Register/>}/>
+           <Route path="/searchProduct" element={<SearchProduct/>}></Route>
                 
             </Routes>
             
