@@ -7,6 +7,8 @@ const AddtoCart = createSlice({
   },
   reducers: {
     addtoCart: (state, action) => {
+      const token=localStorage.getItem("token")
+      if(token){
       const existingItem = state.cart.find(
         (item) => item.id === action.payload.id
       );
@@ -23,6 +25,10 @@ const AddtoCart = createSlice({
         });
         console.log(state.cart)
       }
+    }
+    else{
+      alert("login first....")
+    }
     },
     RemoveItem: (state, action) => {
       alert("Do You want to remove these item ?")

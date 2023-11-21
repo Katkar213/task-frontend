@@ -22,6 +22,7 @@ import Register from "../Component/UserCredentials/Register"
 import {useSelector} from "react-redux"
 import axios from "axios"
 import SearchProduct from "../Component/SearchProduct"
+import Checkout from "../Component/Checkout"
 
 
 export default function Links(){
@@ -151,18 +152,40 @@ const HandleSearch = async (e) => {
                  </div>
                
                 <div className="logo">
-                <div></div>
+             
+                <ul className="navlink">
                 <NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i>
-                </NavLink><span>{countItem.length}</span> 
-                {/* <NavLink to={"/login"}><i className="fa-solid fa-user"></i></NavLink> */}
-                <div><i className="fa-solid fa-user"></i>
+                </NavLink><span>{countItem.length}</span></ul>
+
+                <ul className="navlink">
+           <li><NavLink  ><i className="fa-solid fa-user"></i></NavLink>
+           <ul class='submenunew'>
+                <li><span>{val.value}</span></li>
+                <li> {
+                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                  }
+                  </li>
+              </ul></li>  </ul>
+             
+               {/* <li><NavLink className="navlink-names" to="/laptop" onClick={()=>setChange(!change)}>Laptop</NavLink>
+            
+            <ul className='submenu'>
+              <li><NavLink className="navlink-names" to="/laptop/lenovolaptops">Lenovo</NavLink></li>
+
+              <li><NavLink className="navlink-names" to="/laptop/hplaptops">Hp</NavLink></li>
+            </ul>
+            </li>  */}
+          
+
+
+                {/* <div><i className="fa-solid fa-user"></i>
                 <div >
                   <span>{val.value}</span>
                   {
                     val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
                   }
                 </div>
-            </div>
+            </div> */}
                 
                  </div> 
                 
@@ -195,27 +218,52 @@ const HandleSearch = async (e) => {
                <Route path="/cart" element={<Cart/>}/>
                <Route path="/login" element={<Login/>}/>
                <Route path="/register" element={<Register/>}/>
+               <Route path="/login" element={<Login/>}/>
            <Route path="/searchProduct" element={<SearchProduct/>}></Route>
+           <Route path="/checkout" element={<Checkout/>}></Route>
                 
             </Routes>
             
             <footer>
+            <div className="div4">  
+  <h2>About Us</h2>
+Welcome to [Title]! We are passionate about delivering high-quality products and exceptional service to our valued customers. At [Title], we strive to bring you the latest trends and innovations.
+
+            </div >
+            <div className="footerlinks">
               <div className="div1">
             <NavLink className="navlink-names" to="/">Home</NavLink>
             <NavLink  className="navlink-names" to="/accessories">Accessories</NavLink>
             <NavLink  className="navlink-names" to="/electronics">Electronics</NavLink>
             
+           
             </div>
             <div className="div2">
             <NavLink  className="navlink-names" to="/fashion">Fashion</NavLink>
             <NavLink  className="navlink-names" to="/mobile">Mobiles</NavLink>
             <NavLink className="navlink-names" to="/laptop">Laptops</NavLink>
             </div>
+            </div>
+            
             <div className="div3">
            <NavLink>About Us</NavLink>
            <NavLink>FAQ</NavLink>
            <NavLink>Customer Care</NavLink>
             </div>
+           
+            <div className="div4">
+              <h2>Share Us On:</h2>
+              <div className="footericons">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <h2><i class="fa-regular fa-copyright"></i> 2023</h2>
+              
+             
+            </div>
+           
             </footer>
           
 

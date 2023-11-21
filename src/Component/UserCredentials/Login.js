@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../Authentication.css"
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 function LogIn() {
@@ -43,10 +44,11 @@ function LogIn() {
       <form className="loginform" onSubmit={handleSubmit}>
         <label className="word" htmlFor="email">
           Email:
-        </label>
+        </label><br></br>
         <input
           className="text"
           type="email"
+          placeholder="Enter your Email"
           name="email"
           id="email"
           onChange={handleChange}
@@ -56,21 +58,25 @@ function LogIn() {
         <br />
         <label className="word" htmlFor="password">
           Password:
-        </label>
+        </label><br></br>
         <input
-          className="text1"
+          className="text"
           type="password"
           maxLength="8"
           name="password"
+          placeholder="Enter your Password"
           id="password"
           onChange={handleChange}
           value={data.password}
         />
         <br />
         <br />
-        <button className="button" type="submit">
+        <div className="btndiv">
+        <button className="login-submit-button" type="submit">
           Submit
         </button>
+        </div>
+       
       </form>
       <div className="or">OR</div>
 

@@ -1,10 +1,13 @@
 import React from "react";
+import {NavLink} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { RemoveItem, IncreaseQuantity, DecreaseQuantity } from "../Component/Redux/Slicing";
 import "./Cart.css"
 
+
 const Cart = () => {
   const dispatch = useDispatch();
+  
 
   const data = useSelector((state) => state.Cart.cart);
 
@@ -76,7 +79,9 @@ const Cart = () => {
         </div>
 
         <div className="buy">
+        <NavLink to="/checkout" state={data}>
           <button>Buy Now</button>
+          </NavLink>
         </div>
       </div>
     </div>
