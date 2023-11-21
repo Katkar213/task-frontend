@@ -260,6 +260,11 @@ footer li{
 .primary{
   display:none;
 }
+.footerlinks{
+  display: flex;
+  flex-direction: row;
+ gap:10vw;
+}
 
 /* mobile responsive */
 
