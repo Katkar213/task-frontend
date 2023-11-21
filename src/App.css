@@ -421,6 +421,12 @@ footer{
     row-gap:10px;
  
   }
+  .div4{
+    width:90%;
+  }
+  .div3{
+    display: none;
+  }
  /* changed */
   .whole-searchbar{
   z-index:11;
