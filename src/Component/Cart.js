@@ -79,7 +79,7 @@ const Cart = () => {
         </div>
 
         <div className="buy">
-        <NavLink to="/checkout" state={data}>
+        <NavLink to="/success" state={data}>
           <button>Buy Now</button>
           </NavLink>
         </div>

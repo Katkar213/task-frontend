@@ -23,6 +23,7 @@ import {useSelector} from "react-redux"
 import axios from "axios"
 import SearchProduct from "../Component/SearchProduct"
 import Checkout from "../Component/Checkout"
+import Success from "../Component/Success"
 
 
 export default function Links(){
@@ -239,6 +240,7 @@ const HandleSearch = async (e) => {
                <Route path="/login" element={<Login/>}/>
            <Route path="/searchProduct" element={<SearchProduct/>}></Route>
            <Route path="/checkout" element={<Checkout/>}></Route>
+           <Route path="/success" element={<Success/>}></Route>
                 
             </Routes>
             
