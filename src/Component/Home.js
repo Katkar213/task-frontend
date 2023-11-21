@@ -51,8 +51,7 @@ const Electronics = () => {
               
                 <p>Price:{item.price}</p>
                 <h4>
-                  {item.RAM} {item.ROM}<br></br>
-                  {item.display}</h4>
+                  {item.RAM} {item.ROM}<br></br></h4>
                   </div>
                   </NavLink> 
                   <button className="home-commonbutton" onClick={() =>

@@ -252,7 +252,14 @@ font-size: 14px;
 footer li{
   list-style-type: none;
 }
-
+.logosearchbar {
+   
+  color:black;
+  
+}
+.primary{
+  display:none;
+}
 
 /* mobile responsive */
 
@@ -261,6 +268,15 @@ footer li{
     display:none;
     justify-content: space-around;
   }
+  /* .spl{
+    display:block;
+    margin-top: 40px;
+  } */
+  .logosearchbar {
+   
+  color:black;
+  
+}
   .navlink-names{
     color:black;
     font-size: 30px;
@@ -318,7 +334,7 @@ footer li{
   font-size: 30px;
   color: black;
   z-index: 11;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .title{
   display:none;
@@ -365,6 +381,9 @@ footer{
   }
   .fa-user{
     color: black;
+  }
+  .primary{
+    display:block;
   }
 
 }
@@ -458,5 +477,10 @@ footer{
   display:flex;
   justify-content: space-around;
 }
-
+.primary{
+  display:block;
+}
+footer{
+  flex-direction: column;
+}
 }

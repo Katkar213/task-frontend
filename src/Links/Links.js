@@ -137,8 +137,26 @@ const HandleSearch = async (e) => {
 
                 <li><NavLink className="navlink-names" to="/laptop/hplaptops">Hp</NavLink></li>
               </ul>
+
+
               </li> 
-        
+              <div className="primary">
+              <li><NavLink to="/cart" onClick={()=>setChange(!change)}><i className="fa-solid fa-cart-shopping"></i>
+                </NavLink><span>{countItem.length}</span></li>
+              </div>
+
+              <div  className="primary">
+              <li><NavLink  ><i className="fa-solid fa-user"></i></NavLink>
+           <ul class='submenunew'>
+                <li onClick={()=>setChange(!change)}><span>{val.value}</span></li>
+                <li onClick={()=>setChange(!change)}> {
+                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                  }
+                  </li>
+              </ul></li> 
+              </div>
+
+             
             </ul>
 
             <div className="searchbar-logo">
@@ -153,11 +171,11 @@ const HandleSearch = async (e) => {
                
                 <div className="logo">
              
-                <ul className="navlink">
+                <ul className="navlink ">
                 <NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i>
                 </NavLink><span>{countItem.length}</span></ul>
 
-                <ul className="navlink">
+                <ul className="navlink ">
            <li><NavLink  ><i className="fa-solid fa-user"></i></NavLink>
            <ul class='submenunew'>
                 <li><span>{val.value}</span></li>
