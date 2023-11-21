@@ -488,4 +488,7 @@ footer{
 footer{
   flex-direction: column;
 }
+.cart{
+  color:black;
+}
 }

@@ -142,12 +142,12 @@ const HandleSearch = async (e) => {
 
               </li> 
               <div className="primary">
-              <li><NavLink to="/cart" onClick={()=>setChange(!change)}><i className="fa-solid fa-cart-shopping"></i>
+              <li><NavLink to="/cart" onClick={()=>setChange(!change)}><i className="fa-solid fa-cart-shopping cart"></i>
                 </NavLink><span>{countItem.length}</span></li>
               </div>
 
               <div  className="primary">
-              <li><NavLink  ><i className="fa-solid fa-user"></i></NavLink>
+              <li><NavLink  ><i className="fa-solid fa-user cart"></i></NavLink>
            <ul class='submenunew'>
                 <li onClick={()=>setChange(!change)}><span>{val.value}</span></li>
                 <li onClick={()=>setChange(!change)}> {
