@@ -1,19 +1,46 @@
 import React from "react";
-import {NavLink} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { RemoveItem, IncreaseQuantity, DecreaseQuantity } from "../Component/Redux/Slicing";
 import "./Cart.css"
+import {loadStripe} from "@stripe/stripe-js"
+
 
 
 const Cart = () => {
   const dispatch = useDispatch();
   
-
   const data = useSelector((state) => state.Cart.cart);
 
   const total = data.reduce((cur, item) => {
     return (cur) +item.price *(item.quantity);
   }, 0);
+const makePayment=async ()=>{
+  
+    const stripe =await loadStripe("pk_test_51OFIp6SASTZsWUYjTKRxcD4xTAidUAj7os1f9uqt5pfPPcWFOaV5pmYsZVUUbpkehNtOXKX8vwRwVLdmUZfTWMfM00o8bJqo5J")
+  
+    const body ={
+      products:data
+    }
+    console.log(body)
+    const headers={
+      "Content-Type":"application/json"
+    }
+    const response = await fetch("http://localhost:4001/checkout",{
+            method:"POST",
+            headers:headers,
+            body:JSON.stringify(body)
+    })
+    const session= await response.json();
+  
+    const result =stripe.redirectToCheckout({
+      sessionId:session.id
+    })
+    if(result.error){
+      console.log(result.error)
+    
+   }
+}
+
 
   const handleIncreaseQuantity = (id) => {
     dispatch(IncreaseQuantity({ id }));
@@ -79,9 +106,9 @@ const Cart = () => {
         </div>
 
         <div className="buy">
-        <NavLink to="/success" state={data}>
-          <button>Buy Now</button>
-          </NavLink>
+        {/* <NavLink to="/success" state={data}> */}
+          <button onClick={makePayment}>Buy Now</button>
+          {/* </NavLink> */}
         </div>
       </div>
     </div>
