@@ -81,3 +81,34 @@ flex-direction: column;
 }
 
 }
+
+@media screen and (max-width:1050px) and (min-width:501px){
+    .detail-container{
+    flex-direction: column;
+    }
+    
+    .detail-buttonforAll{
+        
+        height:5vh;
+        width:50vw;
+        font-size: 24px;
+       
+      }
+      .detail-rightsideinnerdiv{
+        text-align:center;
+       
+    }
+    .detail-leftsidediv img{
+        width:50vw;
+        height:30vh;
+        margin: auto;
+    
+    }
+    .detail-leftsidediv{
+       padding-top: 3vh ;
+    }
+    .detail-detailpada-p{
+        font-size: 20px;
+    }
+    
+    }

@@ -119,11 +119,11 @@ margin: auto;
   }
 
     /* Tab view.... */
-    @media screen and (max-width:950px) and (min-width:501px){
+    @media screen and (max-width:1050px) and (min-width:501px){
       
       .laptop-conatiner{
     
-        /* flex-direction: column; */
+         /* flex-direction: column;  */
         width:99vw;
   
       }
@@ -142,6 +142,11 @@ margin: auto;
       }
       .laptop-commonbutton{
         width:30vw;
+      }
+      .laptop-loadmore{
+      
+        width:60vw;
+        font-size: 20px;
       }
 
     }

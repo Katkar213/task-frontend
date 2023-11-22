@@ -397,7 +397,7 @@ footer{
 /* tab view....... */
 
 
-@media screen and (max-width:950px) and (min-width:500px){
+@media screen and (max-width:1050px) and (min-width:500px){
   .navlink{
     display:none;
     justify-content: space-around;

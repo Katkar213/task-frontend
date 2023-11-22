@@ -156,7 +156,7 @@ height:auto;
 
 
     /* Tab view.... */
-    @media screen and (max-width:950px) and (min-width:501px){
+    @media screen and (max-width:1050px) and (min-width:501px){
       
       .home-conatiner{
     
@@ -178,7 +178,7 @@ height:auto;
         width:30vw;
       }
       .child{
-        height: 30vh;
+        height: 25vh;
         width: 35vw;
         margin: auto;
         box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.456);
