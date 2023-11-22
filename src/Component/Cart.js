@@ -25,7 +25,7 @@ const makePayment=async ()=>{
     const headers={
       "Content-Type":"application/json"
     }
-    const response = await fetch("http://localhost:4001/checkout",{
+    const response = await fetch("https://ecommerce-backend-new.onrender.com/checkout",{
             method:"POST",
             headers:headers,
             body:JSON.stringify(body)
