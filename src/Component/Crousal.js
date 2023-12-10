@@ -25,7 +25,7 @@ export default function Crousal(){
         showStatus={false}
         showIndicators={false} 
         showThumbs={false} interval={3000} 
-        autoPlay  >
+         autoPlay={true}   >
            {
             data.filter((item)=>item.category==="crousal").map((images,index)=>
               {
