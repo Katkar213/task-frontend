@@ -18,8 +18,6 @@ export default function Crousal(){
     return(
         <div>
         <Carousel className="slider" 
-        
-         className="slider"
   infiniteLoop={true}
   useKeyboardArrows
   stopOnHover={false}
