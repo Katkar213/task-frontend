@@ -19,13 +19,15 @@ export default function Crousal(){
         <div>
         <Carousel className="slider" 
         
-        infiniteLoop={true} 
-        useKeyboardArrows 
-        stopOnHover={false} 
-        showStatus={false}
-        showIndicators={false} 
-        showThumbs={false} interval={3000} 
-         autoPlay={true}   >
+         className="slider"
+  infiniteLoop={true}
+  useKeyboardArrows
+  stopOnHover={false}
+  showStatus={false}
+  showIndicators={false}
+  showThumbs={false}
+  interval={3000}
+  autoPlay={true}   >
            {
             data.filter((item)=>item.category==="crousal").map((images,index)=>
               {
