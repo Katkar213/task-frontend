@@ -7,6 +7,7 @@ import {loadStripe} from "@stripe/stripe-js"
 
 
 const Cart = () => {
+  
   const dispatch = useDispatch();
   
   const data = useSelector((state) => state.Cart.cart);

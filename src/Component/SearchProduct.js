@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 const SearchProduct = (props) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  console.log(location);
+  // console.log(location);
   const [data] = location.state;
-  console.log(data)
+  // console.log(data)
   return (
     <>
     <h1>Similar Results</h1>

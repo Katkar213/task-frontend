@@ -62,10 +62,10 @@ const HandleSearch = async (e) => {
   setQuery(inputValue);
 
   try {
-    console.log("trying..")
-    const response=await axios.get(`http://localhost:4001/api/search?model=${inputValue}`);
+    // console.log("trying..")
+    const response=await axios.get(`https://ecommerce-backend-new.onrender.com/api/search?model=${inputValue}`);
     setResults(response.data);
-    console.log(results)
+    // console.log(results)
   } catch (error) {
     console.error("Error fetching data:", error);
   }

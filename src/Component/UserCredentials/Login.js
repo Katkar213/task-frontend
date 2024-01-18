@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../Authentication.css"
+import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 function LogIn() {
@@ -18,7 +19,9 @@ function LogIn() {
     axios
       .post("https://ecommerce-backend-new.onrender.com/api/login", data)
       .then((res) => {
-        alert(res.data.message);
+       
+        alert(res.data.message)
+       
         setData(res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("name",res.data.name);
@@ -37,6 +40,9 @@ function LogIn() {
       password: "",
     });
   };
+
+
+ 
 
   return (
     <div className="center">
@@ -83,6 +89,7 @@ function LogIn() {
       <NavLink to="/register" className="nextpage">
          Haven't account please login first
       </NavLink>
+
     </div>
   );
 }
