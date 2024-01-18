@@ -17,15 +17,18 @@ export default function Crousal(){
     }, []);
     return(
         <div>
-        <Carousel className="slider" 
-        
-        infiniteLoop={true} 
-        useKeyboardArrows 
-        stopOnHover={false} 
-        showStatus={false}
-        showIndicators={false} 
-        showThumbs={false} interval={3000} 
-        autoPlay  >
+        <Carousel   key={data.length} 
+      autoPlay
+  className="slider"
+  infiniteLoop={true}
+  useKeyboardArrows
+  stopOnHover={false}
+  showStatus={false}
+  showIndicators={false}
+  showThumbs={false}
+  interval={3000}
+
+    >
            {
             data.filter((item)=>item.category==="crousal").map((images,index)=>
               {
