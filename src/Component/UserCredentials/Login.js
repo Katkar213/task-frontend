@@ -87,7 +87,7 @@ function LogIn() {
       <div className="or">OR</div>
 
       <NavLink to="/register" className="nextpage">
-         Haven't account please login first
+         Haven't account please Register first
       </NavLink>
 
     </div>

@@ -290,6 +290,7 @@ footer li{
   /* changed */
   .navlink-web{
     display:flex;
+    padding-top: 19px;
     flex-direction: column;
     position: absolute;
     top:10px;
@@ -337,9 +338,10 @@ footer li{
 .hamberger{
   display:block;
   font-size: 30px;
+  margin-right: 8px;
   color: black;
   z-index: 11;
-  margin-top: 30px;
+  margin-top: 36px;
 }
 .title{
   display:none;
@@ -409,6 +411,7 @@ footer{
   }
   /* changed */
   .navlink-web{
+    padding-top: 19px;
     display:flex;
     flex-direction: column;
     position: absolute;
@@ -457,7 +460,7 @@ footer{
   font-size: 30px;
   color: black;
   z-index: 11;
-  margin-top: 10px;
+  margin-top: 25px;
   /* float: right; */
 }
 .title{
