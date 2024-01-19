@@ -4,6 +4,8 @@ import "../Authentication.css"
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function LogIn() {
   const [data, setData] = useState({
     email: "",
@@ -13,23 +15,30 @@ function LogIn() {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("https://ecommerce-backend-new.onrender.com/api/login", data)
       .then((res) => {
-       
-        alert(res.data.message)
+        // alert(res.data.message)
+
        
         setData(res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("name",res.data.name);
         if (res.data.token) {
+          toast.success(res.data.message)
+         setTimeout(()=>{
           navigate("/");
+         },4000)
+        
         } else {
+          toast.warn(res.data.message)
           navigate("/login");
         }
+      
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -89,6 +98,8 @@ function LogIn() {
       <NavLink to="/register" className="nextpage">
          Haven't account please Register first
       </NavLink>
+     
+      <ToastContainer />
 
     </div>
   );

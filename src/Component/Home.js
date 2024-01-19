@@ -41,7 +41,7 @@ const Electronics = () => {
               <NavLink to={`/detailpage/${item.id}`} className="specialdivnavlink">
                 <div>
                <p>{item.model}</p>
-               <p>{item.product}</p>
+               {/* <p>{item.product}</p> */}
                <div className="home-child_containercard-image">
                <img
                   src={item.image}
