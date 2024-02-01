@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 .combo{
   display:flex;
 }
@@ -44,7 +45,9 @@ ul li{
 }
 
 .active{
-  color:yellow;
+  color:white;
+  text-decoration: none;
+
 }
 
 /* submenu level 1 */
@@ -264,6 +267,9 @@ footer li{
   display: flex;
   flex-direction: row;
  gap:10vw;
+}
+.white span{
+  color:white;
 }
 
 /* mobile responsive */

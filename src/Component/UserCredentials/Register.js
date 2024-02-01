@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../Register.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const navi = useNavigate();
@@ -23,9 +25,14 @@ function Register() {
     console.log(data);
     axios.post("https://ecommerce-backend-new.onrender.com/api/register", data)
       .then((res) => {
-        alert(res.data.message);
+        toast.success(res.data.message);
         console.log("data added")
-        navi("/login");
+        setTimeout(()=>
+          {
+            navi("/login");
+          },4000
+        )
+  
       })
       .catch((err) => console.log(err));
 
@@ -106,6 +113,7 @@ function Register() {
         <NavLink to="/login" className="nextpage1">
           Go To Login Page
         </NavLink>
+        <ToastContainer/>
       </div>
     </>
   );

@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 
 const AddtoCart = createSlice({
   name: "Cart",
@@ -35,9 +32,11 @@ console.log(res.data)
         console.log(state.cart)
       }
     }
+
     else{
-      toast("login first....")
+      alert("login first....")
     }
+  
     },
     RemoveItem: (state, action) => {
       alert("Do You want to remove these item ?")
@@ -61,7 +60,7 @@ console.log(res.data)
     },
   },
 });
-<ToastContainer/>
+
 export default AddtoCart.reducer;
 export const { addtoCart, RemoveItem, IncreaseQuantity, DecreaseQuantity } =
   AddtoCart.actions;

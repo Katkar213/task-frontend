@@ -150,9 +150,9 @@ const HandleSearch = async (e) => {
               <div  className="primary">
               <li><NavLink  ><i className="fa-solid fa-user cart"></i></NavLink>
            <ul class='submenunew'>
-                <li onClick={()=>setChange(!change)}><span>{val.value}</span></li>
-                <li onClick={()=>setChange(!change)}> {
-                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                <li onClick={()=>setChange(!change)} className="white"><p>{val.value}</p></li>
+                <li onClick={()=>setChange(!change)} > {
+                    val.btn === "LogOut" ? <span onClick={handlelogout} >{val.btn}</span> :  <span  className="white"><NavLink to='/register'>{val.btn}</NavLink></span>
                   }
                   </li>
               </ul></li> 
@@ -182,30 +182,12 @@ const HandleSearch = async (e) => {
            <ul class='submenunew'>
                 <li><span>{val.value}</span></li>
                 <li> {
-                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
+                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/register'>{val.btn}</NavLink></span>
                   }
                   </li>
               </ul></li>  </ul>
              
-               {/* <li><NavLink className="navlink-names" to="/laptop" onClick={()=>setChange(!change)}>Laptop</NavLink>
-            
-            <ul className='submenu'>
-              <li><NavLink className="navlink-names" to="/laptop/lenovolaptops">Lenovo</NavLink></li>
-
-              <li><NavLink className="navlink-names" to="/laptop/hplaptops">Hp</NavLink></li>
-            </ul>
-            </li>  */}
-          
-
-
-                {/* <div><i className="fa-solid fa-user"></i>
-                <div >
-                  <span>{val.value}</span>
-                  {
-                    val.btn === "LogOut" ? <span onClick={handlelogout}>{val.btn}</span> :  <span><NavLink to='/login'>{val.btn}</NavLink></span>
-                  }
-                </div>
-            </div> */}
+      
                 
                  </div> 
                 
