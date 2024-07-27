@@ -29,7 +29,7 @@ function Register() {
         console.log("data added")
         setTimeout(()=>
           {
-            navi("/login");
+            navi("/");
           },4000
         )
   
@@ -48,22 +48,11 @@ function Register() {
     <>
       <div className="center1">
         <h1 id="heading">Register</h1>
-        <label id="font" htmlFor="name">
-          Name:
-        </label>
-        <input
-          className="text2"
-          type="text"
-          name="name"
-          id="name"
-          onChange={handleChange}
-          value={data.name}
-          required
-        ></input>{" "}
+      
         <br />
         <br />
         <label id="font" htmlFor="email">
-          Email:{" "}
+          UserName:
         </label>
         <input
           className="text2"
@@ -77,7 +66,7 @@ function Register() {
         <br />
         <br />
         <label id="font" htmlFor="Password">
-          Set Password:{" "}
+          Set Password:
         </label>
         <input
           className="text3"
@@ -91,26 +80,13 @@ function Register() {
         ></input>
         <br />
         <br />
-        <label id="font" htmlFor="phoneNo">
-          Phone.No:{" "}
-        </label>
-        <input
-          className="text4"
-          type="number"
-          max="10"
-          name="phoneNo"
-          id="phoneNo"
-          onChange={handleChange}
-          value={data.phoneNo}
-          required
-        ></input>{" "}
-        <br />
-        <br />
+      
+        
         <button className="button1" onClick={handleSubmit}>
           Submit
         </button>
         <div className="or1">OR</div>
-        <NavLink to="/login" className="nextpage1">
+        <NavLink to="/" className="nextpage1">
           Go To Login Page
         </NavLink>
         <ToastContainer/>
